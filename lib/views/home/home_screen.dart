@@ -2,8 +2,8 @@ import 'package:couries_one/configs/constants/app_constants.dart';
 import 'package:couries_one/configs/styles/app_colors.dart';
 import 'package:couries_one/configs/styles/app_decor.dart';
 import 'package:couries_one/configs/styles/custom_text_style.dart';
-import 'package:couries_one/views/home/grocery/temp.dart';
 import 'package:couries_one/views/home/parcel/place_order_view.dart';
+import 'package:couries_one/views/home/restaurant/place_order_view.dart';
 import 'package:couries_one/widgets/custom_app_bar.dart';
 import 'package:couries_one/widgets/custom_inkwell.dart';
 import 'package:couries_one/widgets/custom_text_widget.dart';
@@ -30,8 +30,8 @@ class HomeScreen extends StatelessWidget {
                   shrinkWrap: true,
                   children: [
                     HomeScreenWidget(imageUrl: "assets/images/parcel.jpg",title1: "Arrange Delivery",title2: "Arrange Delivery delivery of anything, anytime & anywhere",onTap: (){Navigator.push(context,MaterialPageRoute(builder:(context){return PlaceOrderScreen();}));},),
-                    HomeScreenWidget(imageUrl: "assets/images/food.jpg",title1: "Get Food Delivered",title2: "Arrange Delivery delivery of anything, anytime & anywhere",onTap: (){Navigator.push(context,MaterialPageRoute(builder:(context){return TempA();}));},),
-                    HomeScreenWidget(imageUrl: "assets/images/grocery8.png",title1: "Get Grocery Delivered",title2: "Arrange Delivery delivery of anything, anytime & anywhere",onTap: (){Navigator.push(context,MaterialPageRoute(builder:(context){return TempA();}));},),
+                    HomeScreenWidget(imageUrl: "assets/images/food.jpg",title1: "Get Food Delivered",title2: "Arrange Delivery delivery of anything, anytime & anywhere",onTap: (){Navigator.push(context,MaterialPageRoute(builder:(context){return PlaceOrderScreenForRestaurant();}));},),
+                    HomeScreenWidget(imageUrl: "assets/images/grocery8.png",title1: "Get Grocery Delivered",title2: "Arrange Delivery delivery of anything, anytime & anywhere",onTap: (){Navigator.push(context,MaterialPageRoute(builder:(context){return PlaceOrderScreenForRestaurant();}));},),
 
 
                   ],

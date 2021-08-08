@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 
 class CustomCheckBox extends StatefulWidget {
   final bool isSelected;
-  CustomCheckBox({this.isSelected});
+  final Color borderColor;
+  final Function onTap;
+  CustomCheckBox({this.isSelected,this.borderColor,this.onTap});
 
   @override
   _CustomCheckBoxState createState() => _CustomCheckBoxState();
@@ -27,12 +29,13 @@ class _CustomCheckBoxState extends State<CustomCheckBox> {
         setState(() {
           _isSelected = ! _isSelected;
         });
+        widget.onTap();
       },
       child: Container(
-        height: 20, width: 20,
+        height: 18, width: 18,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          border: Border.all(color: Colors.grey.withOpacity(0.2))
+          border: Border.all(color: widget.borderColor ?? Colors.grey.withOpacity(0.2))
         ),
         child: _isSelected == true ? Center(child:Icon(Icons.circle,color: Colors.blue,size: 14,)) : Container(),
       ),

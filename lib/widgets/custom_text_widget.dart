@@ -9,6 +9,6 @@ class CustomTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(text,style: style,textScaleFactor: 0.9,textAlign: alignText==true? TextAlign.center : null,);
+    return Text(text,style: style,textScaleFactor: 0.87,textAlign: alignText==true? TextAlign.center : null,);
   }
 }
