@@ -39,92 +39,90 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              CustomAppBar(title: "CouriesOne",),
+              CustomAppBar(title: "CouriesOne",hideBackButton: true,),
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(
                     color:AppColors.backgroundColor,
                     borderRadius: ContainerDecor.BorderRadius1
                   ),
-                  child: Padding(
-                    padding:  AppConstants.screenPadding,
-                    child: ListView(
-                      shrinkWrap: true,
-                      children: [
+                  padding:  AppConstants.screenPadding,
+                  child: ListView(
+                    shrinkWrap: true,
+                    children: [
 
-                        Align(
-                            alignment: FractionalOffset.centerLeft,
-                            child: CustomTextWidget("  Country",style: CustomTextStyle.mediumTextStyle(),)),
-                        CustomTextField(
-                          hintText: "Enter your Country",
-                          controller: _countryController,
-                          validator: (String value){
-                            if(value.length<5){
-                              return "Please provide a valid Country";
-                            }
-                            else{
-                              return null;
-                            }
-                          },
-                        ),
-                        SizedBox(height: 20),
+                      Align(
+                          alignment: FractionalOffset.centerLeft,
+                          child: CustomTextWidget("  Country",style: CustomTextStyle.mediumTextStyle(),)),
+                      CustomTextField(
+                        hintText: "Enter your Country",
+                        controller: _countryController,
+                        validator: (String value){
+                          if(value.length<5){
+                            return "Please provide a valid Country";
+                          }
+                          else{
+                            return null;
+                          }
+                        },
+                      ),
+                      SizedBox(height: 20),
 
-                        Align(
-                            alignment: FractionalOffset.centerLeft,
-                            child: CustomTextWidget("  Phone Number",style: CustomTextStyle.mediumTextStyle(),)),
-                        CustomTextField(
-                          hintText: "Enter your Number",
-                          controller: _numberController,
-                          validator: (String value){
-                            if(value.length<5){
-                              return "Please provide a valid Number";
-                            }
-                            else{
-                              return null;
-                            }
-                          },
-                        ),
-                        SizedBox(height: 30),
+                      Align(
+                          alignment: FractionalOffset.centerLeft,
+                          child: CustomTextWidget("  Phone Number",style: CustomTextStyle.mediumTextStyle(),)),
+                      CustomTextField(
+                        hintText: "Enter your Number",
+                        controller: _numberController,
+                        validator: (String value){
+                          if(value.length<5){
+                            return "Please provide a valid Number";
+                          }
+                          else{
+                            return null;
+                          }
+                        },
+                      ),
+                      SizedBox(height: 30),
 
-                        FullWidthButton(
-                          text: "CONTINUE",
-                          onTap: (){
-                            if(_loginKey.currentState.validate()==true){
-                              Navigator.push(context,MaterialPageRoute(builder:(context){return OtpVerificationScreen();}));
-                            }
-                          },
-                        ),
-                        SizedBox(height: 30),
+                      FullWidthButton(
+                        text: "CONTINUE",
+                        onTap: (){
+                          if(_loginKey.currentState.validate()==true){
+                            Navigator.push(context,MaterialPageRoute(builder:(context){return OtpVerificationScreen();}));
+                          }
+                        },
+                      ),
+                      SizedBox(height: 30),
 
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            CustomTextWidget("Don't have an account?",style: CustomTextStyle.smallTextStyle1(),),
-                            CustomInkWell(
-                              onTap: (){
-                                Navigator.push(context,MaterialPageRoute(builder:(context){return SignUpScreen();}));
-                              },
-                              child: CustomTextWidget(" Sign Up",style: CustomTextStyle.smallBoldTextStyle1(),),
-                            )
-                          ],
-                        ),
-                        SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CustomTextWidget("Don't have an account?",style: CustomTextStyle.smallTextStyle1(),),
+                          CustomInkWell(
+                            onTap: (){
+                              Navigator.push(context,MaterialPageRoute(builder:(context){return SignUpScreen();}));
+                            },
+                            child: CustomTextWidget(" Sign Up",style: CustomTextStyle.smallBoldTextStyle1(),),
+                          )
+                        ],
+                      ),
+                      SizedBox(height: 20),
 
-                        Center(child: CustomTextWidget("Or Continue with",style: CustomTextStyle.smallTextStyle1(),),),
-                        SizedBox(height: 30),
+                      Center(child: CustomTextWidget("Or Continue with",style: CustomTextStyle.smallTextStyle1(),),),
+                      SizedBox(height: 30),
 
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            CustomIconContainer(imageUrl: "assets/images/facebook1.png",),
-                            SizedBox(width: 20,),
-                            CustomIconContainer(imageUrl: "assets/images/google.png",)
-                          ],
-                        )
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CustomIconContainer(imageUrl: "assets/images/facebook1.png",),
+                          SizedBox(width: 20,),
+                          CustomIconContainer(imageUrl: "assets/images/google.png",)
+                        ],
+                      )
 
 
-                      ],
-                    ),
+                    ],
                   ),
                 ),
               )

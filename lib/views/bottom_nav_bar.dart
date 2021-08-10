@@ -1,5 +1,6 @@
 import 'package:couries_one/configs/styles/app_colors.dart';
 import 'package:couries_one/views/home/home_screen.dart';
+import 'package:couries_one/views/home/parcel/order_details.dart';
 import 'package:couries_one/views/notification/notification_main_screen.dart';
 import 'package:couries_one/views/profile/profile_mainscreen.dart';
 import 'package:flutter/cupertino.dart';
@@ -34,6 +35,7 @@ class BottomNavScreen extends StatelessWidget {
       // SnappyFoodHomeScreen(),
       // SnappyClassifiedNotificationView(),
       HomeScreen(),
+      OrderDetailsScreen(hideNextButton: true,),
       NotificationScreen(),
       ProfileScreen()
     ];
@@ -43,21 +45,28 @@ class BottomNavScreen extends StatelessWidget {
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-          icon: Icon(Icons.home),
+          icon: Icon(CupertinoIcons.house,size: 22,),
           title: ("Home"),
           activeColor: AppColors.PrimaryColor,
           inactiveColor: AppColors.PrimaryColor,
           titleStyle: TextStyle(fontFamily: "PoppinsRegular",fontSize: 12)
       ),
       PersistentBottomNavBarItem(
-          icon: Icon(Icons.notifications_active_outlined),
+          icon: Icon(CupertinoIcons.timer,size: 22,),
+          title: ("My Orders"),
+          activeColor: AppColors.PrimaryColor,
+          inactiveColor: AppColors.PrimaryColor,
+          titleStyle: TextStyle(fontFamily: "PoppinsRegular",fontSize: 12)
+      ),
+      PersistentBottomNavBarItem(
+          icon: Icon(CupertinoIcons.bell,size: 22,),
           title: ("Notification"),
           activeColor: AppColors.PrimaryColor,
           inactiveColor: AppColors.PrimaryColor,
           titleStyle: TextStyle(fontFamily: "PoppinsRegular",fontSize: 12)
       ),
       PersistentBottomNavBarItem(
-          icon: Icon(Icons.person),
+          icon: Icon(CupertinoIcons.person_crop_circle,size: 22,),
           title: ("Profile"),
           activeColor: AppColors.PrimaryColor,
           inactiveColor: AppColors.PrimaryColor,

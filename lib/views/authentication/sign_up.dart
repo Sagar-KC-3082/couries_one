@@ -1,7 +1,9 @@
 import 'package:couries_one/configs/constants/app_constants.dart';
 import 'package:couries_one/configs/styles/app_colors.dart';
+import 'package:couries_one/configs/styles/app_decor.dart';
 import 'package:couries_one/configs/styles/custom_text_style.dart';
 import 'package:couries_one/views/authentication/login.dart';
+import 'package:couries_one/widgets/custom_app_bar.dart';
 import 'package:couries_one/widgets/custom_inkwell.dart';
 import 'package:couries_one/widgets/custom_text_field.dart';
 import 'package:couries_one/widgets/custom_text_widget.dart';
@@ -32,140 +34,150 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor:  AppColors.backgroundColor,
-        centerTitle: true,
-        title: CustomTextWidget("Sign Up",style: CustomTextStyle.boldMediumTextStyle(),),
-        elevation: 0,
-      ),
-      backgroundColor: AppColors.backgroundColor,
-      body: Padding(
-        padding: AppConstants.screenPadding,
+      backgroundColor: AppColors.PrimaryColor,
+      body: SafeArea(
         child: Form(
           key: _signUpKey,
-          child: ListView(
+          child: Column(
             children: [
 
-              Align(
-                  alignment: FractionalOffset.centerLeft,
-                  child: CustomTextWidget("  Full Name",style: CustomTextStyle.mediumTextStyle(),)),
-              CustomTextField(
-                hintText: "Enter your full name",
-                controller: _nameController,
-                validator: (String value){
-                  if(value.length<5){
-                    return "Please provide a valid Name";
-                  }
-                  else{
-                    return null;
-                  }
-                },
-              ),
-              SizedBox(height: 20),
+              CustomAppBar(title: "CouriesOne"),
 
-              Align(
-                  alignment: FractionalOffset.centerLeft,
-                  child: CustomTextWidget("  Email",style: CustomTextStyle.mediumTextStyle(),)),
-              CustomTextField(
-                hintText: "Enter your Email",
-                controller: _emailController,
-                validator: (String value){
-                  if(value.length<5){
-                    return "Please provide a valid Email";
-                  }
-                  else{
-                    return null;
-                  }
-                },
-              ),
-              SizedBox(height: 20),
-
-              Align(
-                  alignment: FractionalOffset.centerLeft,
-                  child: CustomTextWidget("  Country",style: CustomTextStyle.mediumTextStyle(),)),
-              CustomTextField(
-                hintText: "Enter your Country",
-                controller: _countryController,
-                validator: (String value){
-                  if(value.length<5){
-                    return "Please provide a valid Country";
-                  }
-                  else{
-                    return null;
-                  }
-                },
-              ),
-              SizedBox(height: 20),
-
-              Align(
-                  alignment: FractionalOffset.centerLeft,
-                  child: CustomTextWidget("  Phone Number",style: CustomTextStyle.mediumTextStyle(),)),
-              CustomTextField(
-                hintText: "Enter your Country",
-                controller: _numberController,
-                validator: (String value){
-                  if(value.length<5){
-                    return "Please provide a valid Number";
-                  }
-                  else{
-                    return null;
-                  }
-                },
-              ),
-              SizedBox(height: 20),
-
-              Row(
-                children: [
-                  CustomInkWell(
-                    onTap: (){
-                      setState(() {
-                        _agreed = !_agreed;
-                      });
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: _agreed==true? AppColors.PrimaryColor : Colors.white,
-                          border: Border.all(color: _agreed==true? Colors.transparent : Colors.grey,),
-                          shape: BoxShape.circle),
-                      child: Padding(
-                          padding: const EdgeInsets.all(2.0),
-                          child: _agreed
-                              ? Icon(Icons.check, size: 12.0, color: Colors.white,)
-                              : Icon(Icons.check, size: 12.0, color: Colors.white,)
-                      ),
-                    ),
+              Expanded(
+                child: Container(
+                  decoration: BoxDecoration(
+                      color:AppColors.backgroundColor,
+                      borderRadius: ContainerDecor.BorderRadius1
                   ),
-                  SizedBox(width: 10,),
-                  Text("I agree to the terms and condition",style: CustomTextStyle.smallTextStyle1()),
-                ],
-              ),
-              SizedBox(height: 30),
+                  padding:  AppConstants.screenPadding,
+                  child: ListView(
+                    shrinkWrap: true,
+                    children: [
 
-              FullWidthButton(
-                onTap: (){
-                 if( _signUpKey.currentState.validate()==true){
-                   Navigator.push(context,MaterialPageRoute(builder:(context){return LoginScreen();}));
-                 }
-                },
-                text: "CONTINUE",
-              ),
-              SizedBox(height: 20),
+                      Align(
+                          alignment: FractionalOffset.centerLeft,
+                          child: CustomTextWidget("  Full Name",style: CustomTextStyle.mediumTextStyle(),)),
+                      CustomTextField(
+                        hintText: "Enter your full name",
+                        controller: _nameController,
+                        validator: (String value){
+                          if(value.length<5){
+                            return "Please provide a valid Name";
+                          }
+                          else{
+                            return null;
+                          }
+                        },
+                      ),
+                      SizedBox(height: 20),
+
+                      Align(
+                          alignment: FractionalOffset.centerLeft,
+                          child: CustomTextWidget("  Email",style: CustomTextStyle.mediumTextStyle(),)),
+                      CustomTextField(
+                        hintText: "Enter your Email",
+                        controller: _emailController,
+                        validator: (String value){
+                          if(value.length<5){
+                            return "Please provide a valid Email";
+                          }
+                          else{
+                            return null;
+                          }
+                        },
+                      ),
+                      SizedBox(height: 20),
+
+                      Align(
+                          alignment: FractionalOffset.centerLeft,
+                          child: CustomTextWidget("  Country",style: CustomTextStyle.mediumTextStyle(),)),
+                      CustomTextField(
+                        hintText: "Enter your Country",
+                        controller: _countryController,
+                        validator: (String value){
+                          if(value.length<5){
+                            return "Please provide a valid Country";
+                          }
+                          else{
+                            return null;
+                          }
+                        },
+                      ),
+                      SizedBox(height: 20),
+
+                      Align(
+                          alignment: FractionalOffset.centerLeft,
+                          child: CustomTextWidget("  Phone Number",style: CustomTextStyle.mediumTextStyle(),)),
+                      CustomTextField(
+                        hintText: "Enter your Country",
+                        controller: _numberController,
+                        validator: (String value){
+                          if(value.length<5){
+                            return "Please provide a valid Number";
+                          }
+                          else{
+                            return null;
+                          }
+                        },
+                      ),
+                      SizedBox(height: 20),
+
+                      Row(
+                        children: [
+                          CustomInkWell(
+                            onTap: (){
+                              setState(() {
+                                _agreed = !_agreed;
+                              });
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: _agreed==true? AppColors.PrimaryColor : Colors.white,
+                                  border: Border.all(color: _agreed==true? Colors.transparent : Colors.grey,),
+                                  shape: BoxShape.circle),
+                              child: Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: _agreed
+                                      ? Icon(Icons.check, size: 12.0, color: Colors.white,)
+                                      : Icon(Icons.check, size: 12.0, color: Colors.white,)
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 10,),
+                          Text("I agree to the terms and condition",style: CustomTextStyle.smallTextStyle1()),
+                        ],
+                      ),
+                      SizedBox(height: 30),
+
+                      FullWidthButton(
+                        onTap: (){
+                          if( _signUpKey.currentState.validate()==true){
+                            Navigator.push(context,MaterialPageRoute(builder:(context){return LoginScreen();}));
+                          }
+                        },
+                        text: "CONTINUE",
+                      ),
+                      SizedBox(height: 20),
 
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CustomTextWidget("Already have an account?",style: CustomTextStyle.smallTextStyle1(),),
-                  CustomInkWell(
-                    onTap: (){
-                      Navigator.push(context,MaterialPageRoute(builder:(context){return LoginScreen();}));
-                    },
-                    child: CustomTextWidget(" Sign In",style: CustomTextStyle.smallBoldTextStyle1(),),
-                  )
-                ],
-              ),
-              SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CustomTextWidget("Already have an account?",style: CustomTextStyle.smallTextStyle1(),),
+                          CustomInkWell(
+                            onTap: (){
+                              Navigator.push(context,MaterialPageRoute(builder:(context){return LoginScreen();}));
+                            },
+                            child: CustomTextWidget(" Sign In",style: CustomTextStyle.smallBoldTextStyle1(),),
+                          )
+                        ],
+                      ),
+                      SizedBox(height: 20),
 
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
         ),

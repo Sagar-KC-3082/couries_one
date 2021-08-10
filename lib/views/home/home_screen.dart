@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            CustomAppBar(title: "CouriesOne",),
+            CustomAppBar(imageUrl: true,hideBackButton: true,),
             Expanded(
               child: Container(
                 decoration: BoxDecoration(

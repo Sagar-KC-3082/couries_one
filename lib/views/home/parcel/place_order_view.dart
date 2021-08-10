@@ -19,7 +19,6 @@ class PlaceOrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // drawer: CustomDrawer(),
       key: _globalKey2,
       backgroundColor: AppColors.PrimaryColor,
       body: SafeArea(
@@ -116,7 +115,7 @@ class _LabelContainerState extends State<LabelContainer> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color:Colors.black,
+        color:AppColors.PrimaryColor,
         borderRadius: BorderRadius.circular(8),
       ),
       child: Row(
@@ -207,20 +206,27 @@ class _LabelContainerState extends State<LabelContainer> {
 class LocationStack extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
+    return
         Column(
           children: [
-            CustomAddlocationWidget(location: '24, Ocean avenue',),
-            CustomAddlocationWidget(location: 'Drop off address',),
+            CustomInkWell(
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => AddLocationScreen()));
+                },
+                child: CustomAddlocationWidget(location: '24, Ocean avenue',)
+            ),
+            Align(
+                alignment: Alignment.centerLeft,
+                child: Container(height: 20,width: 1,color: Colors.black,margin: EdgeInsets.only(left:30),)
+            ),
+            CustomInkWell(
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => AddLocationScreen()));
+                },
+                child: CustomAddlocationWidget(location: 'Drop off address',icon: Icon(Icons.arrow_drop_down,color: Colors.black,size: 30,),)
+            ),
           ],
-        ),
-        Positioned(
-            left: 5,
-            top: 55,
-            child: Image.asset("assets/images/arrow3.png",height: 100,width: 50,fit: BoxFit.fill,))
-      ],
-    );
+        );
   }
 }
 
@@ -229,12 +235,13 @@ class LocationStack extends StatelessWidget {
 class CustomAddlocationWidget extends StatelessWidget {
 
   final String location;
-  CustomAddlocationWidget({this.location});
+  final Icon icon;
+  CustomAddlocationWidget({this.location,this.icon});
 
   @override
   Widget build(BuildContext context) {
     return   Container(
-      margin: EdgeInsets.symmetric(horizontal: 8,vertical:15),
+      margin: EdgeInsets.symmetric(horizontal: 8,vertical:0),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
@@ -245,18 +252,13 @@ class CustomAddlocationWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 10,vertical: 25),
       child: Row(
         children: [
-          Icon(Icons.circle,color: Colors.red,size: 20,),
+          icon ?? Icon(Icons.circle,color: AppColors.PrimaryColor,size: 20,),
           SizedBox(width: 10,),
           Expanded(child:CustomTextWidget(location,style: CustomTextStyle.smallTextStyle1(),)),
-          CustomInkWell(
-            onTap: (){
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => AddLocationScreen()));
-              },
-            child: Container(
-              decoration: BoxDecoration(shape: BoxShape.circle,color: AppColors.PrimaryColor),
-              padding: EdgeInsets.all(3),
-              child: Icon(Icons.add,color: Colors.white,),
-            ),
+          Container(
+            decoration: BoxDecoration(shape: BoxShape.circle,color: AppColors.PrimaryColor),
+            padding: EdgeInsets.all(3),
+            child: Icon(Icons.add,color: Colors.white,size: 20,),
           )
         ],
       ),

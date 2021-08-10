@@ -2,6 +2,7 @@ import 'package:couries_one/configs/constants/app_constants.dart';
 import 'package:couries_one/configs/styles/app_colors.dart';
 import 'package:couries_one/configs/styles/app_decor.dart';
 import 'package:couries_one/configs/styles/custom_text_style.dart';
+import 'package:couries_one/views/home/parcel/order_details.dart';
 import 'package:couries_one/views/home/restaurant/place_order_view.dart';
 import 'package:couries_one/widgets/custom_app_bar.dart';
 import 'package:couries_one/widgets/custom_text_widget.dart';
@@ -42,7 +43,7 @@ class PaymentSuccessScreen extends StatelessWidget {
                         title: "Order Details",
                         borderRadius: BorderRadius.circular(15),
                         onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder:(context){return PlaceOrderScreenForRestaurant();}));
+                          Navigator.push(context, MaterialPageRoute(builder:(context){return OrderDetailsScreen();}));
                         },
                       ),
                     )

@@ -4,6 +4,7 @@ import 'package:couries_one/configs/styles/app_decor.dart';
 import 'package:couries_one/configs/styles/custom_text_style.dart';
 import 'package:couries_one/controllers/authentication/otp_controller.dart';
 import 'package:couries_one/views/bottom_nav_bar.dart';
+import 'package:couries_one/widgets/custom_inkwell.dart';
 import 'package:couries_one/widgets/custom_text_widget.dart';
 import 'package:couries_one/widgets/full_width_button.dart';
 import 'package:couries_one/widgets/otp_text_field.dart';
@@ -114,12 +115,21 @@ class AppBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: AppColors.PrimaryColor,
-      padding: AppConstants.screenPadding,
+      padding: EdgeInsets.symmetric(vertical: 20,horizontal: 10),
       child: Column(
         children: [
           Row(
             children: [
-              Icon(Icons.arrow_back_ios_rounded,color: Colors.white,),
+              CustomInkWell(
+                onTap: (){
+                  Navigator.pop(context);
+                },
+                child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 5),
+                    width: 50,
+                    child: Icon(Icons.arrow_back,color: Colors.white,size: 20,)
+                ),
+              ),
               Spacer(),
               CustomTextWidget("Verification",style: CustomTextStyle.boldMediumTextStyle(color: Colors.white),),
               SizedBox(width: 30,),
@@ -130,12 +140,12 @@ class AppBarWidget extends StatelessWidget {
 
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: CustomTextWidget("Enter 6 digit verification code sent on your given number",style: CustomTextStyle.smallTextStyle1(color: Colors.white),),
+            child: CustomTextWidget("Enter 6 digit verification code sent on your given number",style: CustomTextStyle.smallTextStyle1(color: Colors.white),alignText: true,),
           ),
           SizedBox(height: 10,),
 
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Row(
               children: [
                 CustomTextWidget("2:23 min",style: CustomTextStyle.smallTextStyle1(color: Colors.white),),
@@ -144,7 +154,7 @@ class AppBarWidget extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 15,),
+          // SizedBox(height: 15,),
 
         ],
       ),

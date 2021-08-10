@@ -11,6 +11,10 @@ import 'package:flutter/material.dart';
 
 
 class OrderDetailsScreen extends StatelessWidget {
+
+  final bool hideNextButton;
+  OrderDetailsScreen({this.hideNextButton});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,9 +51,9 @@ class OrderDetailsScreen extends StatelessWidget {
                             children: [
                               CustomTextWidget(" 2021",style: CustomTextStyle.smallBoldTextStyle1(color: Colors.white,),),
                               SizedBox(height:2),
-                              CustomTextWidget("Fri, Feb 12",style: CustomTextStyle.boldTextStyle(color: Colors.white),),
+                              CustomTextWidget("Fri, Feb 12",style: CustomTextStyle.boldMediumTextStyle(color: Colors.white),),
                               SizedBox(height: 5,),
-                              CustomTextWidget("11:12 PM",style: CustomTextStyle.boldTextStyle(color: Colors.white),)
+                              CustomTextWidget("11:12 PM",style: CustomTextStyle.boldMediumTextStyle(color: Colors.white),)
                             ],
                           )
                         ],
@@ -133,6 +137,9 @@ class OrderDetailsScreen extends StatelessWidget {
                     ),
 
                     SizedBox(height: 20,),
+
+                    hideNextButton == true ?
+                    Container():
                     FullWidthButtonWithIcon(
                       title: "Next",
                       onTap: (){
