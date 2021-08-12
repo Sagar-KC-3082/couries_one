@@ -7,13 +7,14 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
   final Function validator;
-  CustomTextField({this.controller,this.hintText,this.validator});
+  final int maxLines;
+  CustomTextField({this.controller,this.hintText,this.validator,this.maxLines});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 18),
-      margin: EdgeInsets.symmetric(horizontal: 0,vertical: 5),
+      margin: EdgeInsets.symmetric(horizontal: 5,vertical: 5),
       decoration: BoxDecoration(
         borderRadius: ContainerDecor.TextFieldBorderRadius,
         color: Colors.white,
@@ -25,9 +26,10 @@ class CustomTextField extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         validator: validator,
+        maxLines: maxLines ?? 1,
         decoration: InputDecoration(
             hintText: hintText,
-            hintStyle: CustomTextStyle.mediumTextStyle(),
+            hintStyle: CustomTextStyle.mediumTextStyle(color: Colors.black.withOpacity(0.6)),
             errorMaxLines: 1,
             contentPadding: EdgeInsets.symmetric(vertical: 0,horizontal: 12),
             isDense: true,

@@ -2,8 +2,13 @@ import 'package:couries_one/configs/constants/app_constants.dart';
 import 'package:couries_one/configs/styles/app_colors.dart';
 import 'package:couries_one/configs/styles/app_decor.dart';
 import 'package:couries_one/configs/styles/custom_text_style.dart';
+import 'package:couries_one/models/chats/chat_detail_model.dart';
+import 'package:couries_one/models/chats/chat_list_model.dart';
+import 'package:couries_one/views/chat/chat_detail_screen_view.dart';
 import 'package:couries_one/views/home/parcel/order_payment_view.dart';
+import 'package:couries_one/views/home/parcel/track_driver.dart';
 import 'package:couries_one/widgets/custom_app_bar.dart';
+import 'package:couries_one/widgets/custom_inkwell.dart';
 import 'package:couries_one/widgets/custom_text_widget.dart';
 import 'package:couries_one/widgets/full_width_button.dart';
 import 'package:flutter_svg/svg.dart';
@@ -14,6 +19,22 @@ class OrderDetailsScreen extends StatelessWidget {
 
   final bool hideNextButton;
   OrderDetailsScreen({this.hideNextButton});
+
+  final List<ChatDetailModel> _messageList = [
+    ChatDetailModel(time: "10 : 34" , sentByMe: true , message: "hello, doctor, i believe i have the coronavirus as i am experiencing mild symptoms, what do i do?"),
+    ChatDetailModel(time: "12 : 01" , sentByMe: false , message: "I’m here for you, don’t worry. What symptoms are you experiencing?"),
+    ChatDetailModel(time: "4 : 12" , sentByMe: true , message: "fever,dry cough ,tiredness, sore throat"),
+    ChatDetailModel(time: "7 : 45" , sentByMe: false , message: "oh so sorry about that. do you have any underlying diseases?"),
+    ChatDetailModel(time: "7 : 56" , sentByMe: false , message: "hello, doctor, i believe i have the coronavirus as i am experiencing mild symptoms, what do i do?"),
+    ChatDetailModel(time: "9 : 03" , sentByMe: true , message: "hello, doctor, i believe i have the coronavirus as i am experiencing mild symptoms, what do i do?"),
+    ChatDetailModel(time: "10 : 23" , sentByMe: true , message: "hello, doctor, i believe i have the coronavirus as i am experiencing mild symptoms, what do i do?"),
+    ChatDetailModel(time: "12 : 01" , sentByMe: false , message: "I’m here for you, don’t worry. What symptoms are you experiencing?"),
+    ChatDetailModel(time: "4 : 12" , sentByMe: true , message: "fever \n dry cough \n tiredness \n sore throat"),
+    ChatDetailModel(time: "7 : 45" , sentByMe: false , message: "oh so sorry about that. do you have any underlying diseases?"),
+  ];
+
+   final ChatListModel _userInfo = ChatListModel(name: "Virat",lastMessage: "Hello Sir, Please drop the price",date: "June 22",imageUrl: "assets/images/user.jpg");
+
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +98,36 @@ class OrderDetailsScreen extends StatelessWidget {
                       ],
                     ),
 
-                    SizedBox(height: 20,),
+                     SizedBox(height: 10,),
+                     Divider(),
+                     CustomInkWell(
+                       onTap: (){
+                         Navigator.push(context,MaterialPageRoute(builder:(context){return ChatDetailScreen(messageList: _messageList,chatListModel: _userInfo,);}));
+                       },
+                       child:  Row(
+                         children: [
+                           Icon(Icons.message_outlined,color: Colors.blue,size: 15,),
+                           SizedBox(width: 8,),
+                           CustomTextWidget("Message Driver",style:  CustomTextStyle.smallTextStyle1(color: Colors.blue))
+                         ],
+                       ),
+                     ),
+                    SizedBox(height: 5,),
+
+                      CustomInkWell(
+                        onTap: (){
+                          Navigator.push(context,MaterialPageRoute(builder:(context){return TrackDriverScreen();}));
+                        },
+                        child:  Row(
+                          children: [
+                            Icon(Icons.location_on,color: Colors.blue,size: 15,),
+                            SizedBox(width: 8,),
+                            CustomTextWidget("Track Driver Location",style:  CustomTextStyle.smallTextStyle1(color: Colors.blue))
+                          ],
+                        ),
+                      ),
+
+                    SizedBox(height: 10,),
                     Container(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),

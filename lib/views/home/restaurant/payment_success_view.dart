@@ -5,6 +5,7 @@ import 'package:couries_one/configs/styles/custom_text_style.dart';
 import 'package:couries_one/views/home/parcel/order_details.dart';
 import 'package:couries_one/views/home/restaurant/place_order_view.dart';
 import 'package:couries_one/widgets/custom_app_bar.dart';
+import 'package:couries_one/widgets/custom_inkwell.dart';
 import 'package:couries_one/widgets/custom_text_widget.dart';
 import 'package:couries_one/widgets/full_width_button.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +38,16 @@ class PaymentSuccessScreen extends StatelessWidget {
                     CustomTextWidget("Order ID : #65222",style: CustomTextStyle.smallBoldTextStyle1(color: Colors.grey)) ,
                     SizedBox(height: 20,),
 
+                    CustomTextWidget("Rate Driver",style: CustomTextStyle.smallBoldTextStyle1(),),
+                    SizedBox(height: 10,),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        CustomStar(),CustomStar(),CustomStar(),CustomStar(),CustomStar(),
+                      ],
+                    ),
+                    SizedBox(height: 20,),
+
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: FullWidthButtonWithIcon(
@@ -59,3 +70,30 @@ class PaymentSuccessScreen extends StatelessWidget {
     );
   }
 }
+
+
+class CustomStar extends StatefulWidget {
+  @override
+  _CustomStarState createState() => _CustomStarState();
+}
+
+class _CustomStarState extends State<CustomStar> {
+
+  bool _isTapped = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomInkWell(
+      onTap: (){
+        setState(() {
+           _isTapped = !_isTapped;
+        });
+      },
+      child:  Padding(
+          padding: EdgeInsets.symmetric(horizontal: 8),
+          child: _isTapped ? Icon(Icons.star,color: AppColors.PrimaryColor,) : Icon(Icons.star_border,color: Colors.grey,)
+      ),
+    );
+  }
+}
+

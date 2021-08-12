@@ -4,6 +4,7 @@ import 'package:couries_one/configs/styles/app_colors.dart';
 import 'package:couries_one/configs/styles/app_decor.dart';
 import 'package:couries_one/configs/styles/custom_text_style.dart';
 import 'package:couries_one/models/home/order_details_model.dart';
+import 'package:couries_one/views/home/parcel/add_parcel_info.dart';
 import 'package:couries_one/views/home/parcel/recipient.dart';
 import 'package:couries_one/widgets/custom_app_bar.dart';
 import 'package:couries_one/widgets/custom_inkwell.dart';
@@ -55,7 +56,7 @@ class OrderSizeScreen extends StatelessWidget {
               child: FullWidthButtonWithIcon(
                 title: "Next",
                 onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) =>RecipientScreen()));
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) =>AddPackageInfoScreen()));
                   },
               ),
             )
