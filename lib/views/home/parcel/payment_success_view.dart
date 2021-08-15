@@ -37,15 +37,15 @@ class PaymentSuccessScreen extends StatelessWidget {
                     CustomTextWidget("Order ID : #65222",style: CustomTextStyle.smallBoldTextStyle1(color: Colors.grey)) ,
                     SizedBox(height: 20,),
 
-                    CustomTextWidget("Rate Driver",style: CustomTextStyle.smallBoldTextStyle1(),),
-                    SizedBox(height: 10,),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        CustomStar(),CustomStar(),CustomStar(),CustomStar(),CustomStar(),
-                      ],
-                    ),
-                    SizedBox(height: 20,),
+                    // CustomTextWidget("Rate Driver",style: CustomTextStyle.smallBoldTextStyle1(),),
+                    // SizedBox(height: 10,),
+                    // Row(
+                    //   mainAxisSize: MainAxisSize.min,
+                    //   children: [
+                    //     CustomStar(),CustomStar(),CustomStar(),CustomStar(),CustomStar(),
+                    //   ],
+                    // ),
+                    // SizedBox(height: 20,),
 
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),

@@ -18,7 +18,8 @@ import 'package:flutter/material.dart';
 class OrderDetailsScreen extends StatelessWidget {
 
   final bool hideNextButton;
-  OrderDetailsScreen({this.hideNextButton});
+  final bool showMessageIcon;
+  OrderDetailsScreen({this.hideNextButton,this.showMessageIcon});
 
   final List<ChatDetailModel> _messageList = [
     ChatDetailModel(time: "10 : 34" , sentByMe: true , message: "hello, doctor, i believe i have the coronavirus as i am experiencing mild symptoms, what do i do?"),
@@ -34,7 +35,6 @@ class OrderDetailsScreen extends StatelessWidget {
   ];
 
    final ChatListModel _userInfo = ChatListModel(name: "Virat",lastMessage: "Hello Sir, Please drop the price",date: "June 22",imageUrl: "assets/images/user.jpg");
-
 
   @override
   Widget build(BuildContext context) {
@@ -99,35 +99,39 @@ class OrderDetailsScreen extends StatelessWidget {
                     ),
 
                      SizedBox(height: 10,),
-                     Divider(),
-                     CustomInkWell(
-                       onTap: (){
-                         Navigator.push(context,MaterialPageRoute(builder:(context){return ChatDetailScreen(messageList: _messageList,chatListModel: _userInfo,);}));
-                       },
-                       child:  Row(
-                         children: [
-                           Icon(Icons.message_outlined,color: Colors.blue,size: 15,),
-                           SizedBox(width: 8,),
-                           CustomTextWidget("Message Driver",style:  CustomTextStyle.smallTextStyle1(color: Colors.blue))
-                         ],
-                       ),
-                     ),
-                    SizedBox(height: 5,),
-
-                      CustomInkWell(
-                        onTap: (){
-                          Navigator.push(context,MaterialPageRoute(builder:(context){return TrackDriverScreen();}));
-                        },
-                        child:  Row(
-                          children: [
-                            Icon(Icons.location_on,color: Colors.blue,size: 15,),
-                            SizedBox(width: 8,),
-                            CustomTextWidget("Track Driver Location",style:  CustomTextStyle.smallTextStyle1(color: Colors.blue))
-                          ],
+                     showMessageIcon == true ? Column(
+                      children: [
+                        Divider(),
+                        CustomInkWell(
+                          onTap: (){
+                            Navigator.push(context,MaterialPageRoute(builder:(context){return ChatDetailScreen(messageList: _messageList,chatListModel: _userInfo,);}));
+                          },
+                          child:  Row(
+                            children: [
+                              Icon(Icons.message_outlined,color: Colors.blue,size: 15,),
+                              SizedBox(width: 8,),
+                              CustomTextWidget("Message Driver",style:  CustomTextStyle.smallTextStyle1(color: Colors.blue))
+                            ],
+                          ),
                         ),
-                      ),
+                        SizedBox(height: 5,),
 
-                    SizedBox(height: 10,),
+                        CustomInkWell(
+                          onTap: (){
+                            Navigator.push(context,MaterialPageRoute(builder:(context){return TrackDriverScreen();}));
+                          },
+                          child:  Row(
+                            children: [
+                              Icon(Icons.location_on,color: Colors.blue,size: 15,),
+                              SizedBox(width: 8,),
+                              CustomTextWidget("Track Driver Location",style:  CustomTextStyle.smallTextStyle1(color: Colors.blue))
+                            ],
+                          ),
+                        ),
+
+                        SizedBox(height: 10,),
+                      ],
+                    ) : Container(),
                     Container(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),

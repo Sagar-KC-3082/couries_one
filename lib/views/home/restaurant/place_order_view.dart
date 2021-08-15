@@ -135,7 +135,7 @@ class _LabelContainerState extends State<LabelContainer> {
                     Container(
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: _selectedIndex == 1 ? Colors.white : Color(0xFF005A8D)
+                        color: _selectedIndex == 1 ? Colors.white : AppColors.primaryDarkBlue
                       ),
                       padding: EdgeInsets.all(20),
                       child: SvgPicture.asset("assets/svgs/scooter.svg",color: _selectedIndex == 1 ? AppColors.PrimaryColor : Colors.white, height: 50,),
@@ -160,7 +160,7 @@ class _LabelContainerState extends State<LabelContainer> {
                   Container(
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: _selectedIndex == 2 ? Colors.white : Color(0xFF005A8D)
+                        color: _selectedIndex == 2 ? Colors.white : AppColors.primaryDarkBlue
                     ),
                     padding: EdgeInsets.all(20),
                     child: SvgPicture.asset("assets/svgs/van.svg",color: _selectedIndex == 2 ? AppColors.PrimaryColor : Colors.white,height: 50,),
@@ -185,7 +185,7 @@ class _LabelContainerState extends State<LabelContainer> {
                   Container(
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: _selectedIndex == 3 ? Colors.white : Color(0xFF005A8D)
+                        color: _selectedIndex == 3 ? Colors.white : AppColors.primaryDarkBlue
                     ),
                     padding: EdgeInsets.all(20),
                     child: SvgPicture.asset("assets/svgs/truck.svg",color: _selectedIndex == 3 ? AppColors.PrimaryColor : Colors.white,height: 50,),

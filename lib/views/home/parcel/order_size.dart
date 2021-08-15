@@ -4,7 +4,7 @@ import 'package:couries_one/configs/styles/app_colors.dart';
 import 'package:couries_one/configs/styles/app_decor.dart';
 import 'package:couries_one/configs/styles/custom_text_style.dart';
 import 'package:couries_one/models/home/order_details_model.dart';
-import 'package:couries_one/views/home/parcel/add_parcel_info.dart';
+import 'package:couries_one/views/home/parcel/add_extra_info.dart';
 import 'package:couries_one/views/home/parcel/recipient.dart';
 import 'package:couries_one/widgets/custom_app_bar.dart';
 import 'package:couries_one/widgets/custom_inkwell.dart';
@@ -82,6 +82,7 @@ class OrderSizeWidget extends StatefulWidget {
 class _OrderSizeWidgetState extends State<OrderSizeWidget> {
 
   bool _isSelected = false ;
+  int count = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -90,6 +91,65 @@ class _OrderSizeWidgetState extends State<OrderSizeWidget> {
         setState(() {
            _isSelected = ! _isSelected;
         });
+        showModalBottomSheet(
+            context: context,
+            builder: (context){
+              return StatefulBuilder(
+                  builder: (BuildContext context, StateSetter setState){
+                    return Container(
+                      color: AppColors.PrimaryColor,
+                      padding: EdgeInsets.symmetric(vertical: 12,horizontal: Get.width*0.2),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          CustomTextWidget("Select Quantity",style: CustomTextStyle.boldMediumTextStyle(color: Colors.white),),
+                          SizedBox(height: 10,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              CustomInkWell(
+                                onTap: (){
+                                  if(count>1){
+                                    setState(() {
+                                      count--;
+                                    });
+                                  }
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.white
+                                  ),
+                                  child: Icon(Icons.remove,size: 20,),
+                                ),
+                              ),
+                              CustomTextWidget(count.toString(),style: CustomTextStyle.boldMediumTextStyle(color: Colors.white),),
+                              CustomInkWell(
+                                onTap: (){
+                                  setState(() {
+                                    count++;
+                                  });
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.white
+                                  ),
+                                  child: Icon(Icons.add,size: 20,),
+                                ),
+                              ),
+
+                            ],
+                          )
+                        ],
+                      ),
+                    );
+                  }
+              );
+            }
+        );
       },
       child: Container(
         decoration: BoxDecoration(

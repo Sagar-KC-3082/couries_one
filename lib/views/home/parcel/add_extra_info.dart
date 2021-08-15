@@ -59,8 +59,8 @@ class _AddPackageInfoScreenState extends State<AddPackageInfoScreen> {
                     child: ListView(
                       shrinkWrap: true,
                       children: [
-                        CustomTextField(hintText: "Enter Package Weight (Optional)",),
-                        SizedBox(height: 10,),
+                        // CustomTextField(hintText: "Enter Package Weight (Optional)",),
+                        // SizedBox(height: 10,),
                         CustomTextField(hintText: "Instruction for Delivery (Optional)",maxLines: 5,),
                         SizedBox(height: 10,),
                         CustomTextField(hintText: "Additional Info (Optional)",maxLines: 5,),

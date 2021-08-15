@@ -2,9 +2,11 @@ import 'package:couries_one/configs/constants/app_constants.dart';
 import 'package:couries_one/configs/styles/app_colors.dart';
 import 'package:couries_one/configs/styles/app_decor.dart';
 import 'package:couries_one/configs/styles/custom_text_style.dart';
+import 'package:couries_one/views/home/restaurant/add_more_items.dart';
 import 'package:couries_one/views/home/restaurant/confirm_info.dart';
 import 'package:couries_one/widgets/custom_app_bar.dart';
 import 'package:couries_one/widgets/custom_checkbox.dart';
+import 'package:couries_one/widgets/custom_inkwell.dart';
 import 'package:couries_one/widgets/custom_text_field.dart';
 import 'package:couries_one/widgets/custom_text_widget.dart';
 import 'package:couries_one/widgets/full_width_button.dart';
@@ -35,6 +37,15 @@ class FoodInfoScreen extends StatelessWidget {
                     CustomAddItemWidget(),
                     CustomAddItemWidget(),
                     CustomAddItemWidget(),
+                    SizedBox(height: 10,),
+
+                    Align(
+                        alignment: Alignment.centerRight,
+                        child: CustomInkWell(
+                            onTap: (){
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => AddMoreScreen()));
+                            },
+                            child: CustomTextWidget("Add more  ",style: CustomTextStyle.smallTextStyle1(),))),
                     SizedBox(height: 20,),
                     
                     CustomTextWidget("Delivery Mode",style: CustomTextStyle.boldMediumTextStyle(),),

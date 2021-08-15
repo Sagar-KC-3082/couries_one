@@ -35,7 +35,7 @@ class BottomNavScreen extends StatelessWidget {
       // SnappyFoodHomeScreen(),
       // SnappyClassifiedNotificationView(),
       HomeScreen(),
-      OrderDetailsScreen(hideNextButton: true,),
+      OrderDetailsScreen(hideNextButton: true,showMessageIcon: true,),
       NotificationScreen(),
       ProfileScreen()
     ];

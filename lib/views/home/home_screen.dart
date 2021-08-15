@@ -29,9 +29,9 @@ class HomeScreen extends StatelessWidget {
                 child: ListView(
                   shrinkWrap: true,
                   children: [
-                    HomeScreenWidget(imageUrl: "assets/images/parcel.jpg",title1: "Arrange Delivery",title2: "Arrange Delivery delivery of anything, anytime & anywhere",onTap: (){Navigator.push(context,MaterialPageRoute(builder:(context){return PlaceOrderScreen();}));},),
-                    HomeScreenWidget(imageUrl: "assets/images/food.jpg",title1: "Get Food Delivered",title2: "Arrange Delivery delivery of anything, anytime & anywhere",onTap: (){Navigator.push(context,MaterialPageRoute(builder:(context){return PlaceOrderScreenForRestaurant();}));},),
-                    HomeScreenWidget(imageUrl: "assets/images/grocery8.png",title1: "Get Grocery Delivered",title2: "Arrange Delivery delivery of anything, anytime & anywhere",onTap: (){Navigator.push(context,MaterialPageRoute(builder:(context){return PlaceOrderScreenForRestaurant();}));},),
+                    HomeScreenWidget(imageUrl: "assets/images/delivery.png",title1: "Arrange Delivery",title2: "Arrange Delivery delivery of anything, anytime & anywhere",onTap: (){Navigator.push(context,MaterialPageRoute(builder:(context){return PlaceOrderScreen();}));},),
+                    HomeScreenWidget(imageUrl: "assets/images/food1.png",title1: "Get Food Delivered",title2: "Arrange Delivery delivery of anything, anytime & anywhere",onTap: (){Navigator.push(context,MaterialPageRoute(builder:(context){return PlaceOrderScreenForRestaurant();}));},),
+                    HomeScreenWidget(imageUrl: "assets/images/grocery_final.png",title1: "Get Grocery Delivered",title2: "Arrange Delivery delivery of anything, anytime & anywhere",onTap: (){Navigator.push(context,MaterialPageRoute(builder:(context){return PlaceOrderScreenForRestaurant();}));},),
 
 
                   ],
@@ -69,16 +69,13 @@ class HomeScreenWidget extends StatelessWidget {
         margin: EdgeInsets.symmetric(vertical: 15),
         child: Row(
           children: [
-            ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.asset(imageUrl,height: 70,width: 60,fit: BoxFit.cover,)
-            ),
+            Image.asset(imageUrl,height: 70,width: 60,),
             SizedBox(width: 15,),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CustomTextWidget(title1,style: CustomTextStyle.smallBoldTextStyle1(),),
+                  CustomTextWidget(title1,style: CustomTextStyle.boldMediumTextStyle(),),
                   SizedBox(height: 5,),
                   CustomTextWidget(title2,style: CustomTextStyle.ultraSmallTextStyle(),alignText: false,)
                 ],

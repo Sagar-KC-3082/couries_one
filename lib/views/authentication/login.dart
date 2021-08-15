@@ -39,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              CustomAppBar(title: "CouriesOne",hideBackButton: true,),
+              CustomAppBar(imageUrl: true,hideBackButton: true,),
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(
@@ -150,7 +150,7 @@ class CustomIconContainer extends StatelessWidget {
       },
       child: Container(
           decoration: BoxDecoration(
-            color:  Color(0xFF2742A5).withOpacity(0.8),
+            color:  AppColors.primaryDarkBlue,
             borderRadius: BorderRadius.circular(12)
           ),
           padding: EdgeInsets.symmetric(horizontal: 12,vertical: 15),

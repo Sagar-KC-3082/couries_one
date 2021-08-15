@@ -15,7 +15,7 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: AppColors.PrimaryColor,
-      padding: EdgeInsets.symmetric(vertical: 20,horizontal: 10),
+      padding: EdgeInsets.symmetric(vertical:10,horizontal: 10),
       child: Row(
         children: [
           hideBackButton == true?
@@ -38,10 +38,14 @@ class CustomAppBar extends StatelessWidget {
 
           Spacer(),
           imageUrl == true ?
-          Image.asset("assets/images/logo1.png",height: 30,width: 70,):
+          Image.asset("assets/images/icon.png",height: 40,width: 50,fit: BoxFit.fill,):
           CustomTextWidget(title,style: CustomTextStyle.boldTextStyle(color: Colors.white)),
           Spacer(),
-          Container(width: 50,)
+
+          imageUrl == true ?
+          Container():
+          Image.asset("assets/images/icon.png",height: 30,width: 30,fit: BoxFit.fill,),
+          imageUrl == true ? Container(width: 20,) : Container(width: 10,)
         ],
       )
     );
