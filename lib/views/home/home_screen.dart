@@ -32,8 +32,7 @@ class HomeScreen extends StatelessWidget {
                     HomeScreenWidget(imageUrl: "assets/images/delivery.png",title1: "Arrange Delivery",title2: "Arrange Delivery delivery of anything, anytime & anywhere",onTap: (){Navigator.push(context,MaterialPageRoute(builder:(context){return PlaceOrderScreen();}));},),
                     HomeScreenWidget(imageUrl: "assets/images/food1.png",title1: "Get Food Delivered",title2: "Arrange Delivery delivery of anything, anytime & anywhere",onTap: (){Navigator.push(context,MaterialPageRoute(builder:(context){return PlaceOrderScreenForRestaurant();}));},),
                     HomeScreenWidget(imageUrl: "assets/images/grocery_final.png",title1: "Get Grocery Delivered",title2: "Arrange Delivery delivery of anything, anytime & anywhere",onTap: (){Navigator.push(context,MaterialPageRoute(builder:(context){return PlaceOrderScreenForRestaurant();}));},),
-
-
+                    HomeScreenWidget(imageUrl: "assets/images/pharmacy.png",title1: "Get Medicines Delivered",title2: "Arrange Delivery delivery of anything, anytime & anywhere",onTap: (){Navigator.push(context,MaterialPageRoute(builder:(context){return PlaceOrderScreenForRestaurant();}));},),
                   ],
                 ),
               ),
